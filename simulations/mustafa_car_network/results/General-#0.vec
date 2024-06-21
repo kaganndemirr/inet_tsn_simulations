@@ -1,0 +1,3362 @@
+version 3
+run General-0-20240621-14:26:24-13320
+attr configname General
+attr datetime 20240621-14:26:24
+attr datetimef 20240621-142624
+attr experiment General
+attr inifile omnetpp.ini
+attr iterationvars ""
+attr iterationvarsd ""
+attr iterationvarsf ""
+attr measurement ""
+attr network car_network
+attr processid 13320
+attr repetition 0
+attr replication #0
+attr resultdir results
+attr runnumber 0
+attr seedset 0
+config image-path ../../../inet4.5/images
+config network car_network
+config *.Cam1.numApps 1
+config *.Cam1.app[0].typename UdpSourceApp
+config *.Cam1.app[0].display-name video
+config *.Cam1.app[0].source.packetLength 128B
+config *.Cam1.app[0].source.productionInterval 16.66us
+config *.Cam1.app[0].io.destAddress "\"DA_Cam\""
+config *.Cam1.app[0].io.destPort 1000
+config *.DA_Cam.numApps 1
+config *.DA_Cam.app[*].typename UdpSinkApp
+config *.DA_Cam.app[0].display-name Cam1
+config *.DA_Cam.app[0].io.localPort 1000
+config *.Cam1.hasOutgoingStreams true
+config *.Cam1.bridging.streamIdentifier.identifier.mapping "[{stream: \"video\", packetFilter: expr(udp.destPort == 1000)}]"
+config *.Cam1.bridging.streamCoder.encoder.mapping "[{stream: \"video\", pcp: 6}]"
+config *.Switch*.bridging.directionReverser.reverser.excludeEncapsulationProtocols "[\"ieee8021qctag\"]"
+config *.Switch*.bridging.streamCoder.decoder.mapping "[{pcp: 6, stream: \"video\"}]"
+
+vector 0 car_network.Switch1.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 1 car_network.Switch1.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 2 car_network.Switch1.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 3 car_network.Switch1.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 4 car_network.Switch1.eth[1].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 5 car_network.Switch1.eth[1].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 6 car_network.Switch1.eth[1].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 7 car_network.Switch1.eth[1].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 8 car_network.Switch1.eth[2].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 9 car_network.Switch1.eth[2].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 10 car_network.Switch1.eth[2].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 11 car_network.Switch1.eth[2].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 12 car_network.Switch1.eth[3].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 13 car_network.Switch1.eth[3].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 14 car_network.Switch1.eth[3].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 15 car_network.Switch1.eth[3].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 16 car_network.Switch1.eth[4].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 17 car_network.Switch1.eth[4].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 18 car_network.Switch1.eth[4].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 19 car_network.Switch1.eth[4].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 20 car_network.Switch1.eth[5].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 21 car_network.Switch1.eth[5].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 22 car_network.Switch1.eth[5].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 23 car_network.Switch1.eth[5].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 24 car_network.Switch2.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 25 car_network.Switch2.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 26 car_network.Switch2.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 27 car_network.Switch2.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 28 car_network.Switch2.eth[1].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 29 car_network.Switch2.eth[1].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 30 car_network.Switch2.eth[1].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 31 car_network.Switch2.eth[1].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 32 car_network.Switch2.eth[2].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 33 car_network.Switch2.eth[2].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 34 car_network.Switch2.eth[2].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 35 car_network.Switch2.eth[2].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 36 car_network.Switch2.eth[3].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 37 car_network.Switch2.eth[3].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 38 car_network.Switch2.eth[3].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 39 car_network.Switch2.eth[3].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 40 car_network.Switch2.eth[4].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 41 car_network.Switch2.eth[4].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 42 car_network.Switch2.eth[4].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 43 car_network.Switch2.eth[4].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 44 car_network.Switch2.eth[5].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 45 car_network.Switch2.eth[5].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 46 car_network.Switch2.eth[5].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 47 car_network.Switch2.eth[5].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 48 car_network.DA_Cam.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 49 car_network.DA_Cam.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 50 car_network.DA_Cam.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 51 car_network.DA_Cam.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 52 car_network.DA_Cam.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 53 car_network.DA_Cam.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 54 car_network.DA_Cam.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 55 car_network.HU.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 56 car_network.HU.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 57 car_network.HU.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 58 car_network.HU.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 59 car_network.HU.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 60 car_network.HU.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 61 car_network.HU.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 62 car_network.Cam1.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 63 car_network.Cam1.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 64 car_network.Cam1.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 65 car_network.Cam1.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 66 car_network.Cam1.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 67 car_network.Cam1.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 68 car_network.Cam1.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 69 car_network.Cam2.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 70 car_network.Cam2.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 71 car_network.Cam2.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 72 car_network.Cam2.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 73 car_network.Cam2.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 74 car_network.Cam2.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 75 car_network.Cam2.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 76 car_network.Cam3.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 77 car_network.Cam3.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 78 car_network.Cam3.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 79 car_network.Cam3.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 80 car_network.Cam3.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 81 car_network.Cam3.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 82 car_network.Cam3.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 83 car_network.Cam4.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 84 car_network.Cam4.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 85 car_network.Cam4.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 86 car_network.Cam4.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 87 car_network.Cam4.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 88 car_network.Cam4.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 89 car_network.Cam4.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 90 car_network.RSE.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 91 car_network.RSE.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 92 car_network.RSE.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 93 car_network.RSE.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 94 car_network.RSE.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 95 car_network.RSE.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 96 car_network.RSE.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 97 car_network.Telemetrics.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 98 car_network.Telemetrics.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 99 car_network.Telemetrics.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 100 car_network.Telemetrics.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 101 car_network.Telemetrics.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 102 car_network.Telemetrics.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 103 car_network.Telemetrics.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 104 car_network.CD_DVD.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 105 car_network.CD_DVD.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 106 car_network.CD_DVD.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 107 car_network.CD_DVD.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 108 car_network.CD_DVD.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 109 car_network.CD_DVD.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 110 car_network.CD_DVD.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 111 car_network.CU.eth[0].macLayer.queue queueLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + count(packetPushStarted) - count(packetPulled) - count(packetRemoved) - count(packetDropped)))"
+attr title "queue length"
+attr unit pk
+vector 112 car_network.CU.eth[0].macLayer.queue queueBitLength:vector ETV
+attr autoWarmupFilter false
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "warmup(atomic(constant0(packetPushEnded) + sum(packetLength(packetPushStarted)) - sum(packetLength(packetPulled)) - sum(packetLength(packetRemoved)) - sum(packetLength(packetDropped))))"
+attr title "queue bit length"
+attr unit b
+vector 113 car_network.CU.eth[0].phyLayer.interFrameGapInserter interpacketGap:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(interpacketGapStarted) - count(interpacketGapEnded)"
+attr title "interpacket gap state"
+attr type int
+vector 114 car_network.CU.eth[0].phyLayer.transmitter transmitting:vector ETV
+attr interpolationmode sample-hold
+attr recordingmode vector
+attr source "count(transmissionStarted) - count(transmissionEnded)"
+attr title "transmitting state"
+attr type int
+vector 115 car_network.CU.udp passedUpPk:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetSentToUpper
+attr title "packets passed up, count"
+vector 116 car_network.CU.udp droppedPkWrongPort:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsNoPortFound(packetDropped)
+attr title "packets dropped (wrong port), count"
+vector 117 car_network.CU.udp droppedPkBadChecksum:vector(count) ETV
+attr interpolationmode none
+attr recordingmode vector(count)
+attr source packetDropReasonIsIncorrectlyReceived(packetDropped)
+attr title "packets dropped (checksum error), count"
+vector 118 car_network.Cam1.app[0].source packetLengths:vector ETV
+attr interpolationmode none
+attr moduledisplaypath car_network.Cam1.video.source
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "packet lengths"
+attr unit b
+vector 119 car_network.Cam1.app[0].io packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr moduledisplaypath car_network.Cam1.video.io
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 120 car_network.Cam1.udp packetSent:vector(packetBytes) ETV
+attr interpolationmode none
+attr recordingmode vector(packetBytes)
+attr source packetSent
+attr title "packets sent, packetBytes"
+vector 121 car_network.Cam1.bridging.streamIdentifier.identifier incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 122 car_network.Cam1.bridging.streamIdentifier.identifier outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 123 car_network.Cam1.bridging.streamCoder.encoder incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 124 car_network.Cam1.bridging.streamCoder.encoder outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 125 car_network.Cam1.ieee8021q.qTagHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 126 car_network.Cam1.ieee8021q.qTagHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 127 car_network.Cam1.ethernet.macHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 128 car_network.Cam1.ethernet.macHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 129 car_network.Cam1.ethernet.paddingInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 130 car_network.Cam1.ethernet.paddingInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 131 car_network.Cam1.ethernet.fcsInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 132 car_network.Cam1.ethernet.fcsInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 133 car_network.Cam1.eth[0].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 134 car_network.Cam1.eth[0].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 135 car_network.Cam1.eth[0].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 136 car_network.Cam1.eth[0].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 137 car_network.Cam1.eth[0].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 138 car_network.Cam1.eth[0].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 139 car_network.Cam1.eth[0].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 140 car_network.Cam1.eth[0].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 141 car_network.Cam1.eth[0].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 142 car_network.Cam1.eth[0].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 143 car_network.Cam1.eth[0].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 144 car_network.Cam1.eth[0].phyLayer.transmitter transmissionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(transmissionEnded)
+attr title "transmission time"
+attr unit s
+vector 145 car_network.Switch1.eth[3].phyLayer.receiver receptionTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetDuration(receptionEnded)
+attr title "reception time"
+attr unit s
+vector 146 car_network.Switch1.eth[3].phyLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 147 car_network.Switch1.eth[3].phyLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 148 car_network.Switch1.eth[3].phyLayer.phyHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 149 car_network.Switch1.eth[3].phyLayer.phyHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 150 car_network.Switch1.eth[3].macLayer.inboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 151 car_network.Switch1.eth[3].macLayer.inboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 152 car_network.Switch1.eth[3].macLayer.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 153 car_network.Switch1.eth[3].macLayer.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 154 car_network.Switch1.ethernet.fcsChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 155 car_network.Switch1.ethernet.fcsChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 156 car_network.Switch1.ethernet.macHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 157 car_network.Switch1.ethernet.macHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 158 car_network.Switch1.ieee8021q.qTagHeaderChecker incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 159 car_network.Switch1.ieee8021q.qTagHeaderChecker outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 160 car_network.Switch1.bridging.interfaceRelay.learner incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 161 car_network.Switch1.bridging.interfaceRelay.learner outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 162 car_network.Switch1.bridging.directionReverser.reverser incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 163 car_network.Switch1.bridging.directionReverser.reverser outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 164 car_network.Switch1.ethernet.macHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 165 car_network.Switch1.ethernet.macHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 166 car_network.Switch1.ethernet.paddingInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 167 car_network.Switch1.ethernet.paddingInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 168 car_network.Switch1.ethernet.fcsInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 169 car_network.Switch1.ethernet.fcsInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 170 car_network.Switch1.eth[0].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 171 car_network.Switch1.eth[1].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 172 car_network.Switch1.eth[2].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 173 car_network.Switch1.eth[4].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 174 car_network.Switch1.eth[5].macLayer.queue incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushStarted)
+attr title "incoming packet lengths"
+attr unit b
+vector 175 car_network.Switch1.eth[0].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 176 car_network.Switch1.eth[0].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 177 car_network.Switch1.eth[0].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 178 car_network.Switch1.eth[0].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 179 car_network.Switch1.eth[0].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 180 car_network.Switch1.eth[0].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 181 car_network.Switch1.eth[0].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 182 car_network.Switch1.eth[0].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 183 car_network.Switch1.eth[0].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 184 car_network.Switch1.eth[0].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 185 car_network.Switch1.eth[1].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 186 car_network.Switch1.eth[1].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 187 car_network.Switch1.eth[1].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 188 car_network.Switch1.eth[1].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 189 car_network.Switch1.eth[1].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 190 car_network.Switch1.eth[1].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 191 car_network.Switch1.eth[1].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 192 car_network.Switch1.eth[1].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 193 car_network.Switch1.eth[1].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 194 car_network.Switch1.eth[1].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 195 car_network.Switch1.eth[2].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 196 car_network.Switch1.eth[2].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 197 car_network.Switch1.eth[2].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 198 car_network.Switch1.eth[2].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 199 car_network.Switch1.eth[2].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 200 car_network.Switch1.eth[2].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 201 car_network.Switch1.eth[2].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 202 car_network.Switch1.eth[2].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 203 car_network.Switch1.eth[2].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 204 car_network.Switch1.eth[2].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 205 car_network.Switch1.eth[4].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 206 car_network.Switch1.eth[4].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 207 car_network.Switch1.eth[4].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 208 car_network.Switch1.eth[4].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 209 car_network.Switch1.eth[4].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 210 car_network.Switch1.eth[4].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 211 car_network.Switch1.eth[4].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 212 car_network.Switch1.eth[4].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 213 car_network.Switch1.eth[4].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 214 car_network.Switch1.eth[4].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 215 car_network.Switch1.eth[5].macLayer.queue queueingTime:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source queueingTime(packetPulled)
+attr title "queueing times"
+attr unit s
+vector 216 car_network.Switch1.eth[5].macLayer.queue outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "outgoing packet lengths"
+attr unit b
+vector 217 car_network.Switch1.eth[5].macLayer.server incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPulled)
+attr title "incoming packet lengths"
+attr unit b
+vector 218 car_network.Switch1.eth[5].macLayer.server outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source packetLength(packetPushed)
+attr title "outgoing packet lengths"
+attr unit b
+vector 219 car_network.Switch1.eth[5].macLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 220 car_network.Switch1.eth[5].macLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 221 car_network.Switch1.eth[5].phyLayer.phyHeaderInserter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 222 car_network.Switch1.eth[5].phyLayer.phyHeaderInserter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+vector 223 car_network.Switch1.eth[5].phyLayer.outboundEmitter incomingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedIn, packetPulledIn))"
+attr title "incoming packet lengths"
+attr unit b
+vector 224 car_network.Switch1.eth[5].phyLayer.outboundEmitter outgoingPacketLengths:vector ETV
+attr interpolationmode none
+attr recordingmode vector
+attr source "packetLength(merge(packetPushedOut, packetPulledOut))"
+attr title "outgoing packet lengths"
+attr unit b
+0	0	0	0
+0	0	0	0
+0	0	0	0
+0	0	0	0
+0	0	0	0
+0	32	0.000001538	1
+0	33	0.000001538	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+1	0	0	0
+1	32	0.000001538	1392
+1	33	0.000001538	0
+2	0	0	0
+2	0	0	0
+3	0	0	0
+3	0	0	0
+3	33	0.000001538	1
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	0	0	0
+4	32	0.000001538	1
+4	34	0.000001538	0
+5	0	0	0
+5	0	0	0
+5	0	0	0
+5	0	0	0
+5	0	0	0
+5	32	0.000001538	1392
+5	34	0.000001538	0
+6	0	0	0
+6	0	0	0
+7	0	0	0
+7	0	0	0
+7	34	0.000001538	1
+8	0	0	0
+8	0	0	0
+8	0	0	0
+8	0	0	0
+8	0	0	0
+8	32	0.000001538	1
+8	35	0.000001538	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	0	0	0
+9	32	0.000001538	1392
+9	35	0.000001538	0
+10	0	0	0
+10	0	0	0
+11	0	0	0
+11	0	0	0
+11	35	0.000001538	1
+12	0	0	0
+12	0	0	0
+12	0	0	0
+12	0	0	0
+12	0	0	0
+13	0	0	0
+13	0	0	0
+13	0	0	0
+13	0	0	0
+13	0	0	0
+14	0	0	0
+14	0	0	0
+15	0	0	0
+15	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	0	0	0
+16	32	0.000001538	1
+16	36	0.000001538	0
+17	0	0	0
+17	0	0	0
+17	0	0	0
+17	0	0	0
+17	0	0	0
+17	32	0.000001538	1392
+17	36	0.000001538	0
+18	0	0	0
+18	0	0	0
+19	0	0	0
+19	0	0	0
+19	36	0.000001538	1
+20	0	0	0
+20	0	0	0
+20	0	0	0
+20	0	0	0
+20	0	0	0
+20	32	0.000001538	1
+20	37	0.000001538	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+21	0	0	0
+21	32	0.000001538	1392
+21	37	0.000001538	0
+22	0	0	0
+22	0	0	0
+23	0	0	0
+23	0	0	0
+23	37	0.000001538	1
+24	0	0	0
+24	0	0	0
+24	0	0	0
+24	0	0	0
+24	0	0	0
+25	0	0	0
+25	0	0	0
+25	0	0	0
+25	0	0	0
+25	0	0	0
+26	0	0	0
+26	0	0	0
+27	0	0	0
+27	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+28	0	0	0
+29	0	0	0
+29	0	0	0
+29	0	0	0
+29	0	0	0
+29	0	0	0
+30	0	0	0
+30	0	0	0
+31	0	0	0
+31	0	0	0
+32	0	0	0
+32	0	0	0
+32	0	0	0
+32	0	0	0
+32	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+33	0	0	0
+34	0	0	0
+34	0	0	0
+35	0	0	0
+35	0	0	0
+36	0	0	0
+36	0	0	0
+36	0	0	0
+36	0	0	0
+36	0	0	0
+37	0	0	0
+37	0	0	0
+37	0	0	0
+37	0	0	0
+37	0	0	0
+38	0	0	0
+38	0	0	0
+39	0	0	0
+39	0	0	0
+40	0	0	0
+40	0	0	0
+40	0	0	0
+40	0	0	0
+40	0	0	0
+41	0	0	0
+41	0	0	0
+41	0	0	0
+41	0	0	0
+41	0	0	0
+42	0	0	0
+42	0	0	0
+43	0	0	0
+43	0	0	0
+44	0	0	0
+44	0	0	0
+44	0	0	0
+44	0	0	0
+44	0	0	0
+45	0	0	0
+45	0	0	0
+45	0	0	0
+45	0	0	0
+45	0	0	0
+46	0	0	0
+46	0	0	0
+47	0	0	0
+47	0	0	0
+48	0	0	0
+48	0	0	0
+48	0	0	0
+48	0	0	0
+48	0	0	0
+49	0	0	0
+49	0	0	0
+49	0	0	0
+49	0	0	0
+49	0	0	0
+50	0	0	0
+50	0	0	0
+51	0	0	0
+51	0	0	0
+52	0	0	0
+53	0	0	0
+54	0	0	0
+55	0	0	0
+55	0	0	0
+55	0	0	0
+55	0	0	0
+55	0	0	0
+56	0	0	0
+56	0	0	0
+56	0	0	0
+56	0	0	0
+56	0	0	0
+57	0	0	0
+57	0	0	0
+58	0	0	0
+58	0	0	0
+59	0	0	0
+60	0	0	0
+61	0	0	0
+62	0	0	0
+62	0	0	0
+62	0	0	0
+62	0	0	0
+62	0	0	0
+62	29	0	1
+62	30	0	0
+63	0	0	0
+63	0	0	0
+63	0	0	0
+63	0	0	0
+63	0	0	0
+63	29	0	1424
+63	30	0	0
+64	0	0	0
+64	0	0	0
+64	31	0.000001488	1
+65	0	0	0
+65	0	0	0
+65	30	0	1
+65	31	0.000001488	0
+66	0	0	0
+67	0	0	0
+68	0	0	0
+69	0	0	0
+69	0	0	0
+69	0	0	0
+69	0	0	0
+69	0	0	0
+70	0	0	0
+70	0	0	0
+70	0	0	0
+70	0	0	0
+70	0	0	0
+71	0	0	0
+71	0	0	0
+72	0	0	0
+72	0	0	0
+73	0	0	0
+74	0	0	0
+75	0	0	0
+76	0	0	0
+76	0	0	0
+76	0	0	0
+76	0	0	0
+76	0	0	0
+77	0	0	0
+77	0	0	0
+77	0	0	0
+77	0	0	0
+77	0	0	0
+78	0	0	0
+78	0	0	0
+79	0	0	0
+79	0	0	0
+80	0	0	0
+81	0	0	0
+82	0	0	0
+83	0	0	0
+83	0	0	0
+83	0	0	0
+83	0	0	0
+83	0	0	0
+84	0	0	0
+84	0	0	0
+84	0	0	0
+84	0	0	0
+84	0	0	0
+85	0	0	0
+85	0	0	0
+86	0	0	0
+86	0	0	0
+87	0	0	0
+88	0	0	0
+89	0	0	0
+90	0	0	0
+90	0	0	0
+90	0	0	0
+90	0	0	0
+90	0	0	0
+91	0	0	0
+91	0	0	0
+91	0	0	0
+91	0	0	0
+91	0	0	0
+92	0	0	0
+92	0	0	0
+93	0	0	0
+93	0	0	0
+94	0	0	0
+95	0	0	0
+96	0	0	0
+97	0	0	0
+97	0	0	0
+97	0	0	0
+97	0	0	0
+97	0	0	0
+98	0	0	0
+98	0	0	0
+98	0	0	0
+98	0	0	0
+98	0	0	0
+99	0	0	0
+99	0	0	0
+100	0	0	0
+100	0	0	0
+101	0	0	0
+102	0	0	0
+103	0	0	0
+104	0	0	0
+104	0	0	0
+104	0	0	0
+104	0	0	0
+104	0	0	0
+105	0	0	0
+105	0	0	0
+105	0	0	0
+105	0	0	0
+105	0	0	0
+106	0	0	0
+106	0	0	0
+107	0	0	0
+107	0	0	0
+108	0	0	0
+109	0	0	0
+110	0	0	0
+111	0	0	0
+111	0	0	0
+111	0	0	0
+111	0	0	0
+111	0	0	0
+112	0	0	0
+112	0	0	0
+112	0	0	0
+112	0	0	0
+112	0	0	0
+113	0	0	0
+113	0	0	0
+114	0	0	0
+114	0	0	0
+115	0	0	0
+116	0	0	0
+117	0	0	0
+118	0	0	1024
+119	16	0	128
+120	27	0	136
+121	29	0	1248
+122	29	0	1248
+123	29	0	1248
+124	29	0	1248
+125	29	0	1248
+126	29	0	1280
+127	29	0	1280
+128	29	0	1392
+129	29	0	1392
+130	29	0	1392
+131	29	0	1392
+132	29	0	1424
+133	29	0	1424
+134	30	0	0
+135	30	0	1424
+136	30	0	1424
+137	30	0	1424
+138	30	0	1424
+139	30	0	1424
+140	30	0	1424
+141	30	0	1488
+142	30	0	1488
+143	30	0	1488
+144	31	0.000001488	1.488e-06
+145	32	0.000001538	1.488e-06
+146	32	0.000001538	1488
+147	32	0.000001538	1488
+148	32	0.000001538	1488
+149	32	0.000001538	1424
+150	32	0.000001538	1424
+151	32	0.000001538	1424
+152	32	0.000001538	1424
+153	32	0.000001538	1424
+154	32	0.000001538	1424
+155	32	0.000001538	1392
+156	32	0.000001538	1392
+157	32	0.000001538	1280
+158	32	0.000001538	1280
+159	32	0.000001538	1248
+160	32	0.000001538	1248
+161	32	0.000001538	1248
+162	32	0.000001538	1248
+163	32	0.000001538	1248
+164	32	0.000001538	1248
+164	32	0.000001538	1248
+164	32	0.000001538	1248
+164	32	0.000001538	1248
+164	32	0.000001538	1248
+165	32	0.000001538	1360
+165	32	0.000001538	1360
+165	32	0.000001538	1360
+165	32	0.000001538	1360
+165	32	0.000001538	1360
+166	32	0.000001538	1360
+166	32	0.000001538	1360
+166	32	0.000001538	1360
+166	32	0.000001538	1360
+166	32	0.000001538	1360
+167	32	0.000001538	1360
+167	32	0.000001538	1360
+167	32	0.000001538	1360
+167	32	0.000001538	1360
+167	32	0.000001538	1360
+168	32	0.000001538	1360
+168	32	0.000001538	1360
+168	32	0.000001538	1360
+168	32	0.000001538	1360
+168	32	0.000001538	1360
+169	32	0.000001538	1392
+169	32	0.000001538	1392
+169	32	0.000001538	1392
+169	32	0.000001538	1392
+169	32	0.000001538	1392
+170	32	0.000001538	1392
+171	32	0.000001538	1392
+172	32	0.000001538	1392
+173	32	0.000001538	1392
+174	32	0.000001538	1392
+175	33	0.000001538	0
+176	33	0.000001538	1392
+177	33	0.000001538	1392
+178	33	0.000001538	1392
+179	33	0.000001538	1392
+180	33	0.000001538	1392
+181	33	0.000001538	1392
+182	33	0.000001538	1456
+183	33	0.000001538	1456
+184	33	0.000001538	1456
+185	34	0.000001538	0
+186	34	0.000001538	1392
+187	34	0.000001538	1392
+188	34	0.000001538	1392
+189	34	0.000001538	1392
+190	34	0.000001538	1392
+191	34	0.000001538	1392
+192	34	0.000001538	1456
+193	34	0.000001538	1456
+194	34	0.000001538	1456
+195	35	0.000001538	0
+196	35	0.000001538	1392
+197	35	0.000001538	1392
+198	35	0.000001538	1392
+199	35	0.000001538	1392
+200	35	0.000001538	1392
+201	35	0.000001538	1392
+202	35	0.000001538	1456
+203	35	0.000001538	1456
+204	35	0.000001538	1456
+205	36	0.000001538	0
+206	36	0.000001538	1392
+207	36	0.000001538	1392
+208	36	0.000001538	1392
+209	36	0.000001538	1392
+210	36	0.000001538	1392
+211	36	0.000001538	1392
+212	36	0.000001538	1456
+213	36	0.000001538	1456
+214	36	0.000001538	1456
+215	37	0.000001538	0
+216	37	0.000001538	1392
+217	37	0.000001538	1392
+218	37	0.000001538	1392
+219	37	0.000001538	1392
+220	37	0.000001538	1392
+221	37	0.000001538	1392
+222	37	0.000001538	1456
+223	37	0.000001538	1456
+224	37	0.000001538	1456
+vector 225 car_network.Switch1.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 226 car_network.Switch1.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 227 car_network.Switch1.ieee8021q.qTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 228 car_network.Switch1.ieee8021r.rTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 229 car_network.Switch1.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 230 car_network.Switch1.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 231 car_network.Switch1.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 232 car_network.Switch1.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 233 car_network.Switch1.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 234 car_network.Switch1.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 235 car_network.Switch1.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 236 car_network.Switch1.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 237 car_network.Switch1.eth[1].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 238 car_network.Switch1.eth[1].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 239 car_network.Switch1.eth[1].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 240 car_network.Switch1.eth[1].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 241 car_network.Switch1.eth[1].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 242 car_network.Switch1.eth[1].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 243 car_network.Switch1.eth[1].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 244 car_network.Switch1.eth[1].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 245 car_network.Switch1.eth[2].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 246 car_network.Switch1.eth[2].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 247 car_network.Switch1.eth[2].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 248 car_network.Switch1.eth[2].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 249 car_network.Switch1.eth[2].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 250 car_network.Switch1.eth[2].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 251 car_network.Switch1.eth[2].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 252 car_network.Switch1.eth[2].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 253 car_network.Switch1.eth[3].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 254 car_network.Switch1.eth[3].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 255 car_network.Switch1.eth[3].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 256 car_network.Switch1.eth[3].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 257 car_network.Switch1.eth[3].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 258 car_network.Switch1.eth[3].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 259 car_network.Switch1.eth[3].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 260 car_network.Switch1.eth[3].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 261 car_network.Switch1.eth[4].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 262 car_network.Switch1.eth[4].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 263 car_network.Switch1.eth[4].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 264 car_network.Switch1.eth[4].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 265 car_network.Switch1.eth[4].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 266 car_network.Switch1.eth[4].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 267 car_network.Switch1.eth[4].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 268 car_network.Switch1.eth[4].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 269 car_network.Switch1.eth[5].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 270 car_network.Switch1.eth[5].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 271 car_network.Switch1.eth[5].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 272 car_network.Switch1.eth[5].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 273 car_network.Switch1.eth[5].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 274 car_network.Switch1.eth[5].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 275 car_network.Switch1.eth[5].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 276 car_network.Switch1.eth[5].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 277 car_network.Switch2.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 278 car_network.Switch2.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 279 car_network.Switch2.ieee8021q.qTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 280 car_network.Switch2.ieee8021r.rTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 281 car_network.Switch2.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 282 car_network.Switch2.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 283 car_network.Switch2.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 284 car_network.Switch2.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 285 car_network.Switch2.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 286 car_network.Switch2.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 287 car_network.Switch2.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 288 car_network.Switch2.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 289 car_network.Switch2.eth[1].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 290 car_network.Switch2.eth[1].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 291 car_network.Switch2.eth[1].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 292 car_network.Switch2.eth[1].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 293 car_network.Switch2.eth[1].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 294 car_network.Switch2.eth[1].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 295 car_network.Switch2.eth[1].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 296 car_network.Switch2.eth[1].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 297 car_network.Switch2.eth[2].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 298 car_network.Switch2.eth[2].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 299 car_network.Switch2.eth[2].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 300 car_network.Switch2.eth[2].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 301 car_network.Switch2.eth[2].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 302 car_network.Switch2.eth[2].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 303 car_network.Switch2.eth[2].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 304 car_network.Switch2.eth[2].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 305 car_network.Switch2.eth[3].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 306 car_network.Switch2.eth[3].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 307 car_network.Switch2.eth[3].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 308 car_network.Switch2.eth[3].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 309 car_network.Switch2.eth[3].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 310 car_network.Switch2.eth[3].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 311 car_network.Switch2.eth[3].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 312 car_network.Switch2.eth[3].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 313 car_network.Switch2.eth[4].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 314 car_network.Switch2.eth[4].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 315 car_network.Switch2.eth[4].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 316 car_network.Switch2.eth[4].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 317 car_network.Switch2.eth[4].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 318 car_network.Switch2.eth[4].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 319 car_network.Switch2.eth[4].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 320 car_network.Switch2.eth[4].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 321 car_network.Switch2.eth[5].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 322 car_network.Switch2.eth[5].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 323 car_network.Switch2.eth[5].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 324 car_network.Switch2.eth[5].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 325 car_network.Switch2.eth[5].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 326 car_network.Switch2.eth[5].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 327 car_network.Switch2.eth[5].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 328 car_network.Switch2.eth[5].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 329 car_network.DA_Cam.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 330 car_network.DA_Cam.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 331 car_network.DA_Cam.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 332 car_network.DA_Cam.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 333 car_network.DA_Cam.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 334 car_network.DA_Cam.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 335 car_network.DA_Cam.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 336 car_network.DA_Cam.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 337 car_network.DA_Cam.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 338 car_network.DA_Cam.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 339 car_network.DA_Cam.app[0].sink dataRate:vector ETV
+attr interpolationmode linear
+attr moduledisplaypath car_network.DA_Cam.Cam1.sink
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "data rate"
+attr unit bps
+vector 340 car_network.DA_Cam.app[0].sink droppedDataRate:vector ETV
+attr interpolationmode linear
+attr moduledisplaypath car_network.DA_Cam.Cam1.sink
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 341 car_network.HU.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 342 car_network.HU.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 343 car_network.HU.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 344 car_network.HU.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 345 car_network.HU.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 346 car_network.HU.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 347 car_network.HU.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 348 car_network.HU.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 349 car_network.HU.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 350 car_network.HU.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 351 car_network.Cam1.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 352 car_network.Cam1.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 353 car_network.Cam1.ieee8021q.qTagHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 354 car_network.Cam1.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 355 car_network.Cam1.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 356 car_network.Cam1.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 357 car_network.Cam1.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 358 car_network.Cam1.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 359 car_network.Cam1.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 360 car_network.Cam1.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 361 car_network.Cam1.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 362 car_network.Cam1.app[0].source dataRate:vector ETV
+attr interpolationmode linear
+attr moduledisplaypath car_network.Cam1.video.source
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "data rate"
+attr unit bps
+vector 363 car_network.Cam2.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 364 car_network.Cam2.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 365 car_network.Cam2.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 366 car_network.Cam2.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 367 car_network.Cam2.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 368 car_network.Cam2.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 369 car_network.Cam2.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 370 car_network.Cam2.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 371 car_network.Cam2.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 372 car_network.Cam2.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 373 car_network.Cam3.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 374 car_network.Cam3.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 375 car_network.Cam3.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 376 car_network.Cam3.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 377 car_network.Cam3.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 378 car_network.Cam3.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 379 car_network.Cam3.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 380 car_network.Cam3.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 381 car_network.Cam3.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 382 car_network.Cam3.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 383 car_network.Cam4.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 384 car_network.Cam4.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 385 car_network.Cam4.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 386 car_network.Cam4.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 387 car_network.Cam4.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 388 car_network.Cam4.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 389 car_network.Cam4.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 390 car_network.Cam4.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 391 car_network.Cam4.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 392 car_network.Cam4.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 393 car_network.RSE.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 394 car_network.RSE.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 395 car_network.RSE.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 396 car_network.RSE.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 397 car_network.RSE.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 398 car_network.RSE.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 399 car_network.RSE.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 400 car_network.RSE.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 401 car_network.RSE.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 402 car_network.RSE.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 403 car_network.Telemetrics.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 404 car_network.Telemetrics.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 405 car_network.Telemetrics.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 406 car_network.Telemetrics.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 407 car_network.Telemetrics.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 408 car_network.Telemetrics.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 409 car_network.Telemetrics.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 410 car_network.Telemetrics.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 411 car_network.Telemetrics.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 412 car_network.Telemetrics.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 413 car_network.CD_DVD.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 414 car_network.CD_DVD.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 415 car_network.CD_DVD.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 416 car_network.CD_DVD.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 417 car_network.CD_DVD.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 418 car_network.CD_DVD.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 419 car_network.CD_DVD.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 420 car_network.CD_DVD.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 421 car_network.CD_DVD.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 422 car_network.CD_DVD.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+vector 423 car_network.CU.ethernet.macHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 424 car_network.CU.ethernet.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 425 car_network.CU.eth[0].macLayer.queue outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "outgoing datarate"
+attr unit bps
+vector 426 car_network.CU.eth[0].macLayer.queue incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushStarted)
+attr title "incoming datarate"
+attr unit bps
+vector 427 car_network.CU.eth[0].macLayer.server incomingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPulled)
+attr title "incoming datarate"
+attr unit bps
+vector 428 car_network.CU.eth[0].macLayer.server outgoingDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetPushed)
+attr title "outgoing datarate"
+attr unit bps
+vector 429 car_network.CU.eth[0].macLayer.fcsChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 430 car_network.CU.eth[0].phyLayer.transmitter throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(transmissionEnded)
+attr title throughput
+attr unit bps
+vector 431 car_network.CU.eth[0].phyLayer.phyHeaderChecker droppedDataRate:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(packetDropped)
+attr title "dropped data rate"
+attr unit bps
+vector 432 car_network.CU.eth[0].phyLayer.receiver throughput:vector ETV
+attr interpolationmode linear
+attr recordingmode vector
+attr source throughput(receptionEnded)
+attr title throughput
+attr unit bps
+225	37	0.000001577896	0
+226	37	0.000001577896	0
+227	37	0.000001577896	0
+228	37	0.000001577896	0
+229	37	0.000001577896	882187419.1962
+230	37	0.000001577896	882187419.1962
+231	37	0.000001577896	882187419.1962
+232	37	0.000001577896	882187419.1962
+233	37	0.000001577896	0
+234	37	0.000001577896	0
+235	37	0.000001577896	0
+236	37	0.000001577896	0
+237	37	0.000001577896	882187419.1962
+238	37	0.000001577896	882187419.1962
+239	37	0.000001577896	882187419.1962
+240	37	0.000001577896	882187419.1962
+241	37	0.000001577896	0
+242	37	0.000001577896	0
+243	37	0.000001577896	0
+244	37	0.000001577896	0
+245	37	0.000001577896	882187419.1962
+246	37	0.000001577896	882187419.1962
+247	37	0.000001577896	882187419.1962
+248	37	0.000001577896	882187419.1962
+249	37	0.000001577896	0
+250	37	0.000001577896	0
+251	37	0.000001577896	0
+252	37	0.000001577896	0
+253	37	0.000001577896	0
+254	37	0.000001577896	0
+255	37	0.000001577896	0
+256	37	0.000001577896	0
+257	37	0.000001577896	0
+258	37	0.000001577896	0
+259	37	0.000001577896	0
+260	37	0.000001577896	943027930.8649
+261	37	0.000001577896	882187419.1962
+262	37	0.000001577896	882187419.1962
+263	37	0.000001577896	882187419.1962
+264	37	0.000001577896	882187419.1962
+265	37	0.000001577896	0
+266	37	0.000001577896	0
+267	37	0.000001577896	0
+268	37	0.000001577896	0
+269	37	0.000001577896	882187419.1962
+270	37	0.000001577896	882187419.1962
+271	37	0.000001577896	882187419.1962
+272	37	0.000001577896	882187419.1962
+273	37	0.000001577896	0
+274	37	0.000001577896	0
+275	37	0.000001577896	0
+276	37	0.000001577896	0
+277	37	0.000001577896	0
+278	37	0.000001577896	0
+279	37	0.000001577896	0
+280	37	0.000001577896	0
+281	37	0.000001577896	0
+282	37	0.000001577896	0
+283	37	0.000001577896	0
+284	37	0.000001577896	0
+285	37	0.000001577896	0
+286	37	0.000001577896	0
+287	37	0.000001577896	0
+288	37	0.000001577896	0
+289	37	0.000001577896	0
+290	37	0.000001577896	0
+291	37	0.000001577896	0
+292	37	0.000001577896	0
+293	37	0.000001577896	0
+294	37	0.000001577896	0
+295	37	0.000001577896	0
+296	37	0.000001577896	0
+297	37	0.000001577896	0
+298	37	0.000001577896	0
+299	37	0.000001577896	0
+300	37	0.000001577896	0
+301	37	0.000001577896	0
+302	37	0.000001577896	0
+303	37	0.000001577896	0
+304	37	0.000001577896	0
+305	37	0.000001577896	0
+306	37	0.000001577896	0
+307	37	0.000001577896	0
+308	37	0.000001577896	0
+309	37	0.000001577896	0
+310	37	0.000001577896	0
+311	37	0.000001577896	0
+312	37	0.000001577896	0
+313	37	0.000001577896	0
+314	37	0.000001577896	0
+315	37	0.000001577896	0
+316	37	0.000001577896	0
+317	37	0.000001577896	0
+318	37	0.000001577896	0
+319	37	0.000001577896	0
+320	37	0.000001577896	0
+321	37	0.000001577896	0
+322	37	0.000001577896	0
+323	37	0.000001577896	0
+324	37	0.000001577896	0
+325	37	0.000001577896	0
+326	37	0.000001577896	0
+327	37	0.000001577896	0
+328	37	0.000001577896	0
+329	37	0.000001577896	0
+330	37	0.000001577896	0
+331	37	0.000001577896	0
+332	37	0.000001577896	0
+333	37	0.000001577896	0
+334	37	0.000001577896	0
+335	37	0.000001577896	0
+336	37	0.000001577896	0
+337	37	0.000001577896	0
+338	37	0.000001577896	0
+339	37	0.000001577896	0
+340	37	0.000001577896	0
+341	37	0.000001577896	0
+342	37	0.000001577896	0
+343	37	0.000001577896	0
+344	37	0.000001577896	0
+345	37	0.000001577896	0
+346	37	0.000001577896	0
+347	37	0.000001577896	0
+348	37	0.000001577896	0
+349	37	0.000001577896	0
+350	37	0.000001577896	0
+351	37	0.000001577896	0
+352	37	0.000001577896	0
+353	37	0.000001577896	0
+354	37	0.000001577896	902467589.75243
+355	37	0.000001577896	902467589.75243
+356	37	0.000001577896	902467589.75243
+357	37	0.000001577896	902467589.75243
+358	37	0.000001577896	0
+359	37	0.000001577896	943027930.8649
+360	37	0.000001577896	0
+361	37	0.000001577896	0
+362	37	0.000001577896	648965457.7995
+363	37	0.000001577896	0
+364	37	0.000001577896	0
+365	37	0.000001577896	0
+366	37	0.000001577896	0
+367	37	0.000001577896	0
+368	37	0.000001577896	0
+369	37	0.000001577896	0
+370	37	0.000001577896	0
+371	37	0.000001577896	0
+372	37	0.000001577896	0
+373	37	0.000001577896	0
+374	37	0.000001577896	0
+375	37	0.000001577896	0
+376	37	0.000001577896	0
+377	37	0.000001577896	0
+378	37	0.000001577896	0
+379	37	0.000001577896	0
+380	37	0.000001577896	0
+381	37	0.000001577896	0
+382	37	0.000001577896	0
+383	37	0.000001577896	0
+384	37	0.000001577896	0
+385	37	0.000001577896	0
+386	37	0.000001577896	0
+387	37	0.000001577896	0
+388	37	0.000001577896	0
+389	37	0.000001577896	0
+390	37	0.000001577896	0
+391	37	0.000001577896	0
+392	37	0.000001577896	0
+393	37	0.000001577896	0
+394	37	0.000001577896	0
+395	37	0.000001577896	0
+396	37	0.000001577896	0
+397	37	0.000001577896	0
+398	37	0.000001577896	0
+399	37	0.000001577896	0
+400	37	0.000001577896	0
+401	37	0.000001577896	0
+402	37	0.000001577896	0
+403	37	0.000001577896	0
+404	37	0.000001577896	0
+405	37	0.000001577896	0
+406	37	0.000001577896	0
+407	37	0.000001577896	0
+408	37	0.000001577896	0
+409	37	0.000001577896	0
+410	37	0.000001577896	0
+411	37	0.000001577896	0
+412	37	0.000001577896	0
+413	37	0.000001577896	0
+414	37	0.000001577896	0
+415	37	0.000001577896	0
+416	37	0.000001577896	0
+417	37	0.000001577896	0
+418	37	0.000001577896	0
+419	37	0.000001577896	0
+420	37	0.000001577896	0
+421	37	0.000001577896	0
+422	37	0.000001577896	0
+423	37	0.000001577896	0
+424	37	0.000001577896	0
+425	37	0.000001577896	0
+426	37	0.000001577896	0
+427	37	0.000001577896	0
+428	37	0.000001577896	0
+429	37	0.000001577896	0
+430	37	0.000001577896	0
+431	37	0.000001577896	0
+432	37	0.000001577896	0
+
