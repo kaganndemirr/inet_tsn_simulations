@@ -2,7 +2,7 @@
 # OMNeT++/OMNEST Makefile for inet_tsn_simulations
 #
 # This file was generated with the command:
-#  opp_makemake -f --deep -O out -KINET4_5_PROJ=../inet4.5 -DINET_IMPORT -I. -I$$\(INET4_5_PROJ\)/src -L$$\(INET4_5_PROJ\)/src -lINET$$\(D\)
+#  opp_makemake -f --deep -O out -KINET_LATEST_PROJ=../inet-latest -DINET_IMPORT -I. -I$$\(INET_LATEST_PROJ\)/src -L$$\(INET_LATEST_PROJ\)/src -lINET$$\(D\)
 #
 
 # Name of target to be created (-o option)
@@ -19,13 +19,13 @@ USERIF_LIBS = $(ALL_ENV_LIBS) # that is, $(QTENV_LIBS) $(CMDENV_LIBS)
 #USERIF_LIBS = $(QTENV_LIBS)
 
 # C++ include paths (with -I)
-INCLUDE_PATH = -I. -I$(INET4_5_PROJ)/src
+INCLUDE_PATH = -I. -I$(INET_LATEST_PROJ)/src
 
 # Additional object and library files to link with
 EXTRA_OBJS =
 
 # Additional libraries (-L, -l options)
-LIBS = $(LDFLAG_LIBPATH)$(INET4_5_PROJ)/src  -lINET$(D)
+LIBS = $(LDFLAG_LIBPATH)$(INET_LATEST_PROJ)/src  -lINET$(D)
 
 # Output directory
 PROJECT_OUTPUT_DIR = out
@@ -42,7 +42,7 @@ MSGFILES =
 SMFILES =
 
 # Other makefile variables (-K)
-INET4_5_PROJ=../inet4.5
+INET_LATEST_PROJ=../inet-latest
 
 #------------------------------------------------------------------------------
 
@@ -63,7 +63,7 @@ include $(CONFIGFILE)
 # Simulation kernel and user interface libraries
 OMNETPP_LIBS = $(OPPMAIN_LIB) $(USERIF_LIBS) $(KERNEL_LIBS) $(SYS_LIBS)
 ifneq ($(PLATFORM),win32)
-LIBS += -Wl,-rpath,$(abspath $(INET4_5_PROJ)/src)
+LIBS += -Wl,-rpath,$(abspath $(INET_LATEST_PROJ)/src)
 endif
 
 COPTS = $(CFLAGS) $(IMPORT_DEFINES) -DINET_IMPORT $(INCLUDE_PATH) -I$(OMNETPP_INCL_DIR)
