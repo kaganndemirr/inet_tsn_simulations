@@ -13,7 +13,7 @@
 // along with this program.  If not, see http://www.gnu.org/licenses/.
 // 
 
-package simulations.mustafa_industrial_topology;
+package simulations.mustafaindustrialtopology;
 
 import inet.networks.base.TsnNetworkBase;
 import inet.node.contract.IEthernetNetworkNode;
@@ -22,7 +22,7 @@ import inet.node.tsn.TsnClock;
 import inet.node.tsn.TsnDevice;
 import inet.node.tsn.TsnSwitch;
 
-network industrial_topology extends TsnNetworkBase
+network topology extends TsnNetworkBase
 {
     submodules:
         N1: TsnDevice {
@@ -68,10 +68,6 @@ network industrial_topology extends TsnNetworkBase
             @display("p=900,400");
         }
 
-        MasterClock: TsnClock {
-            @display("p=600,455");
-        }
-
 
     connections:
 
@@ -88,6 +84,4 @@ network industrial_topology extends TsnNetworkBase
         N7.ethg++ <--> Eth1G <--> SW5.ethg++;
         N6.ethg++ <--> Eth1G <--> SW6.ethg++;
         N8.ethg++ <--> Eth1G <--> SW6.ethg++;
-
-        MasterClock.ethg++ <--> Eth1G <--> SW3.ethg++;
 }

@@ -3,7 +3,7 @@
 	<name>test</name>
 	<comment></comment>
 	<projects>
-		<project>inet-latest</project>
+		<project>inet-master</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
