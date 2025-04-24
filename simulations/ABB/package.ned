@@ -195,11 +195,11 @@ network topology extends TsnNetworkBase
         ES415: TsnDevice {
             @display("p=841,27;i=device/pc");
         }
-        masterClock: TsnClock {
-            @display("p=803,226;i=device/card");
-        }
+//        masterClock: TsnClock {
+//            @display("p=803,226;i=device/card");
+//        }
     connections:
-		masterClock.ethg++ <--> Eth1G <--> SW000.ethg++;
+//		masterClock.ethg++ <--> Eth1G <--> SW000.ethg++;
 
         SW000.ethg++ <--> Eth1G <--> SW100.ethg++;
         SW000.ethg++ <--> Eth1G <--> SW101.ethg++;
